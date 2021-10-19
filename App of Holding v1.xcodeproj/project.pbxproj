@@ -3,29 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240DCF11271B3C8A00C820E5 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF10271B3C8A00C820E5 /* ItemsController.swift */; };
+		240DCF13271B3FEA00C820E5 /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF12271B3FEA00C820E5 /* NotesController.swift */; };
+		240DCF15271B407600C820E5 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF14271B407600C820E5 /* CharactersController.swift */; };
+		240DCF17271B445B00C820E5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF16271B445B00C820E5 /* TabBarController.swift */; };
+		240DCF1D271B51DD00C820E5 /* SpellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF1C271B51DD00C820E5 /* SpellData.swift */; };
+		240DCF1F271B53D500C820E5 /* SpellFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */; };
+		240DCF23271B585800C820E5 /* SpellSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF22271B585800C820E5 /* SpellSearchController.swift */; };
+		24155415271C989000433BD3 /* SpellCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */; };
+		24155416271C989000433BD3 /* SpellCellCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24155414271C989000433BD3 /* SpellCellCollectionViewCell.xib */; };
 		242B677F27112553002ADCD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B677E27112553002ADCD3 /* AppDelegate.swift */; };
 		242B678127112553002ADCD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B678027112553002ADCD3 /* SceneDelegate.swift */; };
-		242B678327112553002ADCD3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B678227112553002ADCD3 /* ViewController.swift */; };
+		242B678327112553002ADCD3 /* SpellsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B678227112553002ADCD3 /* SpellsController.swift */; };
 		242B678627112553002ADCD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242B678427112553002ADCD3 /* Main.storyboard */; };
 		242B678927112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 242B678727112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld */; };
 		242B678B27112554002ADCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 242B678A27112554002ADCD3 /* Assets.xcassets */; };
 		242B678E27112554002ADCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242B678C27112554002ADCD3 /* LaunchScreen.storyboard */; };
+		24CD5A82271E317A00F24182 /* ResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5A81271E317A00F24182 /* ResultsData.swift */; };
+		ED0501F9ADC086DE80F09DB2 /* Pods_App_of_Holding_v1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D54EDEC444FCF975F7CA6E /* Pods_App_of_Holding_v1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		240DCF10271B3C8A00C820E5 /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
+		240DCF12271B3FEA00C820E5 /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
+		240DCF14271B407600C820E5 /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
+		240DCF16271B445B00C820E5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		240DCF1C271B51DD00C820E5 /* SpellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellData.swift; sourceTree = "<group>"; };
+		240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellFetchManager.swift; sourceTree = "<group>"; };
+		240DCF22271B585800C820E5 /* SpellSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSearchController.swift; sourceTree = "<group>"; };
+		24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellCellCollectionViewCell.swift; sourceTree = "<group>"; };
+		24155414271C989000433BD3 /* SpellCellCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellCellCollectionViewCell.xib; sourceTree = "<group>"; };
 		242B677B27112553002ADCD3 /* App of Holding v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App of Holding v1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		242B677E27112553002ADCD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		242B678027112553002ADCD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		242B678227112553002ADCD3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		242B678227112553002ADCD3 /* SpellsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellsController.swift; sourceTree = "<group>"; };
 		242B678527112553002ADCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		242B678827112553002ADCD3 /* App_of_Holding_v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App_of_Holding_v1.xcdatamodel; sourceTree = "<group>"; };
 		242B678A27112554002ADCD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		242B678D27112554002ADCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		242B678F27112554002ADCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24CD5A81271E317A00F24182 /* ResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsData.swift; sourceTree = "<group>"; };
+		2610AF5DFF97EE96599A0484 /* Pods-App of Holding v1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App of Holding v1.debug.xcconfig"; path = "Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1.debug.xcconfig"; sourceTree = "<group>"; };
+		3A30B754754F8F573D8424C7 /* Pods-App of Holding v1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App of Holding v1.release.xcconfig"; path = "Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1.release.xcconfig"; sourceTree = "<group>"; };
+		E2D54EDEC444FCF975F7CA6E /* Pods_App_of_Holding_v1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_of_Holding_v1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +57,70 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0501F9ADC086DE80F09DB2 /* Pods_App_of_Holding_v1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240DCF0F271B3C7D00C820E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				240DCF21271B582F00C820E5 /* MainControllers */,
+				240DCF20271B582200C820E5 /* SearchControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		240DCF18271B512500C820E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				240DCF1C271B51DD00C820E5 /* SpellData.swift */,
+				240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */,
+				24CD5A81271E317A00F24182 /* ResultsData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		240DCF19271B512D00C820E5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				242B678C27112554002ADCD3 /* LaunchScreen.storyboard */,
+				242B678427112553002ADCD3 /* Main.storyboard */,
+				24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */,
+				24155414271C989000433BD3 /* SpellCellCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		240DCF20271B582200C820E5 /* SearchControllers */ = {
+			isa = PBXGroup;
+			children = (
+				240DCF22271B585800C820E5 /* SpellSearchController.swift */,
+			);
+			path = SearchControllers;
+			sourceTree = "<group>";
+		};
+		240DCF21271B582F00C820E5 /* MainControllers */ = {
+			isa = PBXGroup;
+			children = (
+				242B678227112553002ADCD3 /* SpellsController.swift */,
+				240DCF10271B3C8A00C820E5 /* ItemsController.swift */,
+				240DCF12271B3FEA00C820E5 /* NotesController.swift */,
+				240DCF14271B407600C820E5 /* CharactersController.swift */,
+				240DCF16271B445B00C820E5 /* TabBarController.swift */,
+			);
+			path = MainControllers;
+			sourceTree = "<group>";
+		};
 		242B677227112553002ADCD3 = {
 			isa = PBXGroup;
 			children = (
 				242B677D27112553002ADCD3 /* App of Holding v1 */,
 				242B677C27112553002ADCD3 /* Products */,
+				D563D9D90E113DD3A8B97578 /* Pods */,
+				ED810874E3AF0238633FE65C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +135,33 @@
 		242B677D27112553002ADCD3 /* App of Holding v1 */ = {
 			isa = PBXGroup;
 			children = (
+				240DCF19271B512D00C820E5 /* Views */,
+				240DCF18271B512500C820E5 /* Models */,
+				240DCF0F271B3C7D00C820E5 /* Controllers */,
 				242B677E27112553002ADCD3 /* AppDelegate.swift */,
 				242B678027112553002ADCD3 /* SceneDelegate.swift */,
-				242B678227112553002ADCD3 /* ViewController.swift */,
-				242B678427112553002ADCD3 /* Main.storyboard */,
 				242B678A27112554002ADCD3 /* Assets.xcassets */,
-				242B678C27112554002ADCD3 /* LaunchScreen.storyboard */,
 				242B678F27112554002ADCD3 /* Info.plist */,
 				242B678727112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld */,
 			);
 			path = "App of Holding v1";
+			sourceTree = "<group>";
+		};
+		D563D9D90E113DD3A8B97578 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2610AF5DFF97EE96599A0484 /* Pods-App of Holding v1.debug.xcconfig */,
+				3A30B754754F8F573D8424C7 /* Pods-App of Holding v1.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED810874E3AF0238633FE65C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2D54EDEC444FCF975F7CA6E /* Pods_App_of_Holding_v1.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 242B679227112554002ADCD3 /* Build configuration list for PBXNativeTarget "App of Holding v1" */;
 			buildPhases = (
+				873D705EF878B1249765906F /* [CP] Check Pods Manifest.lock */,
 				242B677727112553002ADCD3 /* Sources */,
 				242B677827112553002ADCD3 /* Frameworks */,
 				242B677927112553002ADCD3 /* Resources */,
+				42A6CBB235D5B0170DE12927 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -106,7 +202,7 @@
 				};
 			};
 			buildConfigurationList = 242B677627112553002ADCD3 /* Build configuration list for PBXProject "App of Holding v1" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -131,20 +227,72 @@
 				242B678E27112554002ADCD3 /* LaunchScreen.storyboard in Resources */,
 				242B678B27112554002ADCD3 /* Assets.xcassets in Resources */,
 				242B678627112553002ADCD3 /* Main.storyboard in Resources */,
+				24155416271C989000433BD3 /* SpellCellCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42A6CBB235D5B0170DE12927 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		873D705EF878B1249765906F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-App of Holding v1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		242B677727112553002ADCD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242B678327112553002ADCD3 /* ViewController.swift in Sources */,
+				240DCF11271B3C8A00C820E5 /* ItemsController.swift in Sources */,
+				24155415271C989000433BD3 /* SpellCellCollectionViewCell.swift in Sources */,
+				240DCF17271B445B00C820E5 /* TabBarController.swift in Sources */,
+				240DCF15271B407600C820E5 /* CharactersController.swift in Sources */,
+				240DCF13271B3FEA00C820E5 /* NotesController.swift in Sources */,
+				242B678327112553002ADCD3 /* SpellsController.swift in Sources */,
+				24CD5A82271E317A00F24182 /* ResultsData.swift in Sources */,
 				242B678927112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld in Sources */,
+				240DCF23271B585800C820E5 /* SpellSearchController.swift in Sources */,
 				242B677F27112553002ADCD3 /* AppDelegate.swift in Sources */,
 				242B678127112553002ADCD3 /* SceneDelegate.swift in Sources */,
+				240DCF1F271B53D500C820E5 /* SpellFetchManager.swift in Sources */,
+				240DCF1D271B51DD00C820E5 /* SpellData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +436,7 @@
 		};
 		242B679327112554002ADCD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2610AF5DFF97EE96599A0484 /* Pods-App of Holding v1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -316,6 +465,7 @@
 		};
 		242B679427112554002ADCD3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A30B754754F8F573D8424C7 /* Pods-App of Holding v1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

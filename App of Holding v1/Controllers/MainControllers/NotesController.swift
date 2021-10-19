@@ -1,19 +1,19 @@
 //
-//  ViewController.swift
+//  NotesController.swift
 //  App of Holding v1
 //
-//  Created by Richard Centeno on 10/8/21.
+//  Created by Richard Centeno on 10/16/21.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class NotesController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
+    
     }
-
-
 }
-

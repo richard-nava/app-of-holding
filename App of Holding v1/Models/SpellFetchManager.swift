@@ -11,7 +11,7 @@ import Foundation
 class SpellFetchManager {
     
     let dndUrl = "https://www.dnd5eapi.co/api/spells"
-    var spells: [Spell] = []
+    
     
     typealias JSONDictionary = [String: Any]
     typealias QueryResult = ([Spell]?, String) -> Void
@@ -20,8 +20,10 @@ class SpellFetchManager {
     
     var errorMessage = ""
     var dataTask: URLSessionDataTask?
+    var spells: [Spell] = []
+    var receivedData: Data?
     
-    func getSearchResults(searchterm:String, completion: @escaping QueryResult) -> [Spell]? {
+    func getSearchResults(searchterm:String) -> [Spell]? {
         
         dataTask?.cancel()
         var ss: [Spell] = []
@@ -41,9 +43,9 @@ class SpellFetchManager {
                     }
                     if let safeData = currentData {
                         let dataString = String(data: safeData, encoding: .utf8)
-                        print(dataString)
+                        print("PRINTING DATA STRING *******")
+                        print(dataString as Any)
                         ss = self.parseJSON(resultsData: safeData)!
-                       
                     }
                 
             }
@@ -51,6 +53,25 @@ class SpellFetchManager {
             return ss
         }
         return nil
+    }
+    
+    //try using NSURLConnection.sendAsync.....
+    func newGetSearch(searchTerm: String) {
+        dataTask?.cancel()
+        var ss: [Spell] = []
+        let fixedSearch = fixSearch(searchStr: searchterm)
+        if var urlComponents = URLComponents(string: dndUrl) {
+            
+            urlComponents.query = "name=\(fixedSearch)"
+            
+            guard let url = urlComponents.url else{
+                return nil
+            }
+        }
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data){
+        self.receivedData?.append(data)
     }
     
     private func updateSearchResults(_ data: Data){
@@ -85,10 +106,10 @@ class SpellFetchManager {
                 spell.name = s.name
                 spell.index = s.index
                 spell.url = s.url
-                print(spell)
                 spellList.append(spell)
             }
             print(spellList)
+            self.spells = spellList
             return spellList
         } catch {
             print(error)

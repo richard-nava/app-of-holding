@@ -23,7 +23,7 @@ class SpellSearchController: UIViewController, UITextFieldDelegate, UICollection
     
     var spellManager = SpellFetchManager()
     var spellName = ""
-    var spells: [Spell] = []
+    var spells: [Spell]! = []
     
     lazy var downloadsSession: URLSession = {
       let configuration = URLSessionConfiguration.background(withIdentifier:
@@ -69,27 +69,18 @@ class SpellSearchController: UIViewController, UITextFieldDelegate, UICollection
     //
     //MARK: Collection View Methods
     //
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1;
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("SPELL COUNT VVVV")
+        print(spells.count)
+        return self.spells.count
     }
     
-    @objc func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1;
-    }
-    
-    @objc(collectionView:cellForItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let spellCell: SpellCellCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "spellCell", for: indexPath) as! SpellCellCollectionViewCell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spellCell", for: indexPath) as! UICollectionViewCell;
-        return cell;
+        return spellCell
     }
     
-    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
-            let cellWidth = collectionView.frame.size.width
-            return CGSize(width: cellWidth, height: cellWidth*0.8)
-    }
-}
-
-extension SpellSearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("here!")
         
@@ -99,12 +90,19 @@ extension SpellSearchController: UISearchBarDelegate {
           return
         }
         print(searchText)
-        queryService.getSearchResults(searchterm: searchText) { [weak self] results, errorMessage in
-            if let results = results {
-                print(self?.searchResults)
-            }
-        }
+        self.spells = queryService.getSearchResults(searchterm: searchText)
+        print("SAVED SPELLS vvvvvvvvv")
+        self.spells = queryService.spells
+        
+        self.collectionView.reloadData()
+        print(self.spells)
+    
     }
+}
+
+extension SpellSearchController: UISearchBarDelegate {
+    
+    
 }
 
 //

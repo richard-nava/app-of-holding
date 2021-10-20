@@ -6,8 +6,5 @@ target 'App of Holding v1' do
   use_frameworks!
 
   # Pods for App of Holding v1
-  pod 'SwiftyJSON'
-  pod 'SDWebImage'
-
 	
 end

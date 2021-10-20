@@ -7,11 +7,21 @@
 
 import Foundation
 
-struct SpellData: Decodable {
-    let name: String;
+struct Spell: Decodable {
+    var index: String?;
+    var name: String?;
+    var url: String?;
 //    let desc: [Description];
 //    let range: String;
 //    let damage: Damage;
+    
+    init(index: String? = nil, name: String? = nil, url: String? = nil) {
+        self.index = index
+        self.name = name
+        self.url = url
+    }
+    
+    
 }
 
 

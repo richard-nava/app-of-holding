@@ -101,7 +101,7 @@
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <connections>
                                 <action selector="goToSpellSearchScreen:" destination="46p-11-y3J" id="WKO-FM-0nn"/>
-                                <segue destination="Gk2-eL-8jf" kind="presentation" identifier="goToSpellSearch" id="Vus-ai-6v5"/>
+                                <segue destination="Gk2-eL-8jf" kind="showDetail" id="UQz-NK-HPv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,16 +118,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8a-01-E3w">
-                                <rect key="frame" x="362.5" y="14" width="44.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
-                                <connections>
-                                    <action selector="searchPressed:" destination="Gk2-eL-8jf" eventType="touchUpInside" id="hYp-KS-fYW"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tbP-1X-Maw">
-                                <rect key="frame" x="20" y="74" width="374" height="760"/>
+                                <rect key="frame" x="20" y="44" width="374" height="790"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M9Y-vE-i9P">
                                     <size key="itemSize" width="128" height="128"/>
@@ -136,7 +128,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="dru-06-Ukk">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="spellCell" id="dru-06-Ukk">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZgS-aL-AjH">
@@ -146,33 +138,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Spell" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lpL-0s-WoU">
-                                <rect key="frame" x="37" y="0.0" width="295" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search Spells" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-0Z-Uo5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g3m-8y-KLE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tbP-1X-Maw" firstAttribute="leading" secondItem="g3m-8y-KLE" secondAttribute="leading" constant="20" id="IWl-1d-MYd"/>
-                            <constraint firstItem="d8a-01-E3w" firstAttribute="top" secondItem="UBj-7d-tIk" secondAttribute="top" constant="14" id="JxW-dn-9Gd"/>
                             <constraint firstAttribute="bottom" secondItem="tbP-1X-Maw" secondAttribute="bottom" constant="8" id="Z12-4L-yr5"/>
-                            <constraint firstItem="g3m-8y-KLE" firstAttribute="trailing" secondItem="d8a-01-E3w" secondAttribute="trailing" constant="7" id="ag9-ig-X2o"/>
                             <constraint firstItem="g3m-8y-KLE" firstAttribute="trailing" secondItem="tbP-1X-Maw" secondAttribute="trailing" constant="20" id="mAe-OE-thZ"/>
-                            <constraint firstItem="tbP-1X-Maw" firstAttribute="top" secondItem="lpL-0s-WoU" secondAttribute="bottom" constant="26" id="rNB-8O-h5R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3E7-Me-NYP"/>
                     <connections>
                         <outlet property="collectionView" destination="tbP-1X-Maw" id="ab4-ea-2Dz"/>
-                        <outlet property="searchSpell" destination="d8a-01-E3w" id="dfU-5R-8wx"/>
-                        <outlet property="searchTextField" destination="lpL-0s-WoU" id="GgN-4D-Eqr"/>
+                        <outlet property="searchBar" destination="Twu-0Z-Uo5" id="3Ce-Gi-isM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CX-ag-AdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508.6956521739132" y="837.72321428571422"/>
+            <point key="canvasLocation" x="1686.9565217391305" y="866.51785714285711"/>
         </scene>
         <!--Characters Navigation-->
         <scene sceneID="EkT-zY-MfZ">
@@ -248,7 +236,6 @@
     </scenes>
     <resources>
         <image name="hammer.fill" catalog="system" width="128" height="117"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>

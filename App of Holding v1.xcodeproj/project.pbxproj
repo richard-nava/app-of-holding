@@ -11,7 +11,7 @@
 		240DCF13271B3FEA00C820E5 /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF12271B3FEA00C820E5 /* NotesController.swift */; };
 		240DCF15271B407600C820E5 /* CharactersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF14271B407600C820E5 /* CharactersController.swift */; };
 		240DCF17271B445B00C820E5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF16271B445B00C820E5 /* TabBarController.swift */; };
-		240DCF1D271B51DD00C820E5 /* SpellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF1C271B51DD00C820E5 /* SpellData.swift */; };
+		240DCF1D271B51DD00C820E5 /* Spell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF1C271B51DD00C820E5 /* Spell.swift */; };
 		240DCF1F271B53D500C820E5 /* SpellFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */; };
 		240DCF23271B585800C820E5 /* SpellSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240DCF22271B585800C820E5 /* SpellSearchController.swift */; };
 		24155415271C989000433BD3 /* SpellCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */; };
@@ -32,7 +32,7 @@
 		240DCF12271B3FEA00C820E5 /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
 		240DCF14271B407600C820E5 /* CharactersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersController.swift; sourceTree = "<group>"; };
 		240DCF16271B445B00C820E5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		240DCF1C271B51DD00C820E5 /* SpellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellData.swift; sourceTree = "<group>"; };
+		240DCF1C271B51DD00C820E5 /* Spell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spell.swift; sourceTree = "<group>"; };
 		240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellFetchManager.swift; sourceTree = "<group>"; };
 		240DCF22271B585800C820E5 /* SpellSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSearchController.swift; sourceTree = "<group>"; };
 		24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellCellCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		240DCF18271B512500C820E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				240DCF1C271B51DD00C820E5 /* SpellData.swift */,
+				240DCF1C271B51DD00C820E5 /* Spell.swift */,
 				240DCF1E271B53D400C820E5 /* SpellFetchManager.swift */,
 				24CD5A81271E317A00F24182 /* ResultsData.swift */,
 			);
@@ -292,7 +292,7 @@
 				242B677F27112553002ADCD3 /* AppDelegate.swift in Sources */,
 				242B678127112553002ADCD3 /* SceneDelegate.swift in Sources */,
 				240DCF1F271B53D500C820E5 /* SpellFetchManager.swift in Sources */,
-				240DCF1D271B51DD00C820E5 /* SpellData.swift in Sources */,
+				240DCF1D271B51DD00C820E5 /* Spell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

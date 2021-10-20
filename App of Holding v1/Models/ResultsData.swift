@@ -8,5 +8,13 @@
 import Foundation
 
 struct ResultsData: Decodable {
-    let results: [SpellData]
+    let count: Int
+    let results: [SpellResults]
+}
+
+
+struct SpellResults: Decodable {
+    let index: String?;
+    let name: String?;
+    let url: String?;
 }

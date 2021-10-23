@@ -11,10 +11,14 @@ struct Spell: Decodable {
     var index: String?;
     var name: String?;
     var url: String?;
-//    let desc: [Description];
-//    let range: String;
-//    let damage: Damage;
+    var desc: String?;
+    var range: String?;
+    var casting_time: String?;
+    var attack_type: String?;
+    var damage: Damage?;
+    var school: School?;
     
+    // initializer for Spell Search
     init(index: String? = nil, name: String? = nil, url: String? = nil) {
         self.index = index
         self.name = name
@@ -24,22 +28,18 @@ struct Spell: Decodable {
     
 }
 
+struct Damage: Decodable {
+    var damage_type: DamageType;
+}
 
+struct DamageType: Decodable {
+    var index: String?;
+    var name: String?;
+    var url: String?;
+}
 
-//struct Description: Codable {
-//    let desc: String;
-//}
-//
-//struct Damage: Codable {
-//    let damage_type: DamageType;
-//    let damage_at_slot_level: DamageAtSlot;
-//}
-//
-//struct DamageType: Codable {
-//    let name: String;
-//    let index: String;
-//}
-//
-//struct DamageAtSlot: Codable {
-//    let slot: String;
-//}
+struct School: Decodable {
+    var index: String?;
+    var name: String?;
+    var url: String?;
+}

@@ -7,35 +7,47 @@
 
 import Foundation
 
+protocol SpellFetchManagerDelagate {
+   func didUpdateSpellSearch(_ spellFetchManager: SpellFetchManager, results: [Spell])
+    func singleSpellInfo(_ spellFetchManager: SpellFetchManager, result: Spell)
+}
 
-class SpellFetchManager {
+
+struct SpellFetchManager {
     
     let dndUrl = "https://www.dnd5eapi.co/api/spells"
-    
+    let rawURL = "https://www.dnd5eapi.co/api/"
     
     typealias JSONDictionary = [String: Any]
     typealias QueryResult = ([Spell]?, String) -> Void
     
     let defaultSession = URLSession(configuration: .default)
-    
+    let decoder = JSONDecoder()
+
+    var delagate: SpellFetchManagerDelagate?
     var errorMessage = ""
     var dataTask: URLSessionDataTask?
     var spells: [Spell] = []
+    var singleSpell = Spell();
     var receivedData: Data?
     
-    func getSearchResults(searchterm:String) -> [Spell]? {
+    // Pulls all spell search results from searchbar string
+    func getSearchResults(searchterm:String){
         
+        // stop previous task
         dataTask?.cancel()
-        var ss: [Spell] = []
+        
+        // adjust searchterm string for spaces
         let fixedSearch = fixSearch(searchStr: searchterm)
         if var urlComponents = URLComponents(string: dndUrl){
             urlComponents.query = "name=\(fixedSearch)"
             
             guard let url = urlComponents.url else{
-                return nil
+                return
             }
             print(url)
             
+            // begin search task
             let task = defaultSession.dataTask(with: url) { currentData, response, error in
                     if error != nil {
                         print(error!)
@@ -45,61 +57,59 @@ class SpellFetchManager {
                         let dataString = String(data: safeData, encoding: .utf8)
                         print("PRINTING DATA STRING *******")
                         print(dataString as Any)
-                        ss = self.parseJSON(resultsData: safeData)!
+                        
+                        // parse the json results and safe to list of viewable spells
+                        if let spells = self.parseJSON(resultsData: safeData){
+                            self.delagate?.didUpdateSpellSearch(self, results: spells)
+                        }
                     }
-                
             }
             task.resume()
-            return ss
         }
-        return nil
+        
     }
     
-    //try using NSURLConnection.sendAsync.....
-    func newGetSearch(searchTerm: String) {
+    func getSingleSpell(url: String) {
         dataTask?.cancel()
-        var ss: [Spell] = []
-        let fixedSearch = fixSearch(searchStr: searchterm)
-        if var urlComponents = URLComponents(string: dndUrl) {
+        if var urlComponents = URLComponents(string: rawURL){
+            urlComponents.path = url
+            //print(urlComponents.query)
             
-            urlComponents.query = "name=\(fixedSearch)"
-            
-            guard let url = urlComponents.url else{
-                return nil
+            guard let fullURL = urlComponents.url else {
+                
+                return
             }
+            print(fullURL)
+            let task = defaultSession.dataTask(with: fullURL) { currentData, response, error in
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                if let safeData = currentData {
+                    let dataString = String(data: safeData, encoding: .utf8)
+                    print(dataString as Any)
+                    if let spell = self.parseSingleJSON(resultsData: safeData){
+                        print(spell)
+                        self.delagate?.singleSpellInfo(self, result: spell)
+                    }
+                }
+            }
+            task.resume()
         }
     }
     
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data){
-        self.receivedData?.append(data)
-    }
-    
-    private func updateSearchResults(_ data: Data){
-        var response: JSONDictionary?
-        spells.removeAll()
+    //
+    //MARK: JSON Parse Methods
+    //
         
-        do{
-            response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
-        } catch let parseError as NSError {
-            errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
-            return
-        }
-        guard let array = response!["results"] as? [Any] else {
-          errorMessage += "Dictionary does not contain results key\n"
-          return
-        }
-        
-        var index = 0
-        
-    }
-    
+    // parse json results from api search into a list of spells to be viewed in UI
     func parseJSON(resultsData: Data) -> [Spell]? {
         
         var spellList: [Spell] = []
-        let decoder = JSONDecoder()
         do{
             let decodedData = try decoder.decode(ResultsData.self, from: resultsData)
-            //print(decodedData.results)
+            
+            // loop through results and save each individual spell in spellList
             for s in decodedData.results {
                 var spell = Spell()
                 
@@ -108,8 +118,7 @@ class SpellFetchManager {
                 spell.url = s.url
                 spellList.append(spell)
             }
-            print(spellList)
-            self.spells = spellList
+//            print(spellList)
             return spellList
         } catch {
             print(error)
@@ -117,6 +126,25 @@ class SpellFetchManager {
         }
     }
     
+    
+    // parse a single spell result
+    func parseSingleJSON(resultsData: Data) -> Spell? {
+        var spell = Spell()
+        do{
+            let decodedData = try decoder.decode(Spell.self, from: resultsData)
+            
+            spell.name = decodedData.name
+            spell.index = decodedData.index
+            spell.url = decodedData.url
+            spell.desc = decodedData.desc
+            spell.range = decodedData.range
+            return spell
+        } catch {
+            return nil
+        }
+    }
+    
+    // adjust string to fit api search
     func fixSearch(searchStr: String) -> String {
         var newName = searchStr;
         if newName.contains(" "){

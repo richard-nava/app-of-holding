@@ -6,32 +6,29 @@
 //
 
 import Foundation
-import AVKit
-import AVFoundation
 import UIKit
 
-class SpellSearchController: UIViewController, UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, URLSessionDelegate {
+class SpellSearchController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, URLSessionDelegate, UICollectionViewDelegateFlowLayout {
     
-    
+        
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    
-    //let downloadService = DownloadService()
-    let queryService = SpellFetchManager()
+    let session = URLSession()
+    let alertService = AlertService()
     
     var spellManager = SpellFetchManager()
     var spellName = ""
-    var spells: [Spell]! = []
-    
-    lazy var downloadsSession: URLSession = {
-      let configuration = URLSessionConfiguration.background(withIdentifier:
-        "com.navadev.App-of-Holding-v1.bgSession")
-      return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-    }()
-    
     var searchResults: [Spell] = []
+
+    private var spell = Spell()
+    private var spells: [Spell]! = []
+    
+    let cellID = "SpellSearchViewCell"
+    let spell1 = Spell(index: "acid-arrow", name: "Acid-Arrow", url: "/api/spells/acid-arrow")
+    let spell2 = Spell(index: "animal-friendship", name: "Animal Friendship", url: "/api/spells/animal-friendship")
+    let spell3 = Spell(index: "wall-of-fire", name: "Wall of Fire", url: "/api/spells/wall-of-fire")
 
     lazy var tapRecognizer: UITapGestureRecognizer = {
       var recognizer = UITapGestureRecognizer(target:self, action: #selector(dismissKeyboard))
@@ -49,20 +46,23 @@ class SpellSearchController: UIViewController, UITextFieldDelegate, UICollection
       return documentsPath.appendingPathComponent(url.lastPathComponent)
     }
     
-    func reload(_ row: Int) {
-//      tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        spells = [spell1, spell2, spell3]
+        spellManager.delagate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "SpellSearchViewCell", bundle: nil), forCellWithReuseIdentifier: cellID)
+        searchBar.delegate = self
         collectionView.reloadData()
     }
     
-    
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "UICollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "spellCell")
-        searchBar.delegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoSingleSpell"{
+            let controller = segue.destination as! SpellDataController
+            controller.spell = spell
+        }
     }
     
     
@@ -72,14 +72,48 @@ class SpellSearchController: UIViewController, UITextFieldDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("SPELL COUNT VVVV")
         print(spells.count)
-        return self.spells.count
+        return spells.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let spellCell: SpellCellCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "spellCell", for: indexPath) as! SpellCellCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         
-        return spellCell
+        let height = view.frame.size.height
+        let width = view.frame.size.width
+        return CGSize(width: width * 0.9, height: 81)
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: SpellSearchViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SpellSearchViewCell", for: indexPath) as! SpellSearchViewCell
+        
+        cell.spellName.text = spells[indexPath.row].name
+        cell.layer.borderColor = UIColor.blue.cgColor
+        cell.layer.borderWidth = 3
+        //cell.backgroundColor = UIColor.magenta
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets()
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Spell \(spells[indexPath.row].name)")
+        spellManager.getSingleSpell(url: spells[indexPath.row].url!)
+//        let alertVC = alertService.alert()
+        let alertVC = alertService.alert2()
+        alertVC.spell = spell
+        performSegue(withIdentifier: "goToSingleSpell", sender: self)
+        
+    }
+    
+    
+    //
+    //MARK: Search Bar Methods
+    //
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("here!")
@@ -90,14 +124,17 @@ class SpellSearchController: UIViewController, UITextFieldDelegate, UICollection
           return
         }
         print(searchText)
-        self.spells = queryService.getSearchResults(searchterm: searchText)
-        print("SAVED SPELLS vvvvvvvvv")
-        self.spells = queryService.spells
+        spellManager.getSearchResults(searchterm: searchText)
         
-        self.collectionView.reloadData()
-        print(self.spells)
+        
+        collectionView.reloadData()
+        
     
     }
+    
+    
+     
+    
 }
 
 extension SpellSearchController: UISearchBarDelegate {
@@ -105,64 +142,27 @@ extension SpellSearchController: UISearchBarDelegate {
     
 }
 
-//
-// MARK: - URL Session Download Delegate
-//
-extension SpellSearchController: URLSessionDownloadDelegate {
-  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
-                  didFinishDownloadingTo location: URL) {
-    // 1
-    guard let sourceURL = downloadTask.originalRequest?.url else {
-      return
+extension SpellSearchController: SpellFetchManagerDelagate {
+    func didUpdateSpellSearch(_ spellFetchManager: SpellFetchManager, results: [Spell]){
+        DispatchQueue.main.async { [weak self] in
+            print("results from dispatch")
+            print(results)
+            self?.spells = results
+            self?.collectionView.reloadData()
+        }
     }
     
-//    let download = downloadService.activeDownloads[sourceURL]
-//    downloadService.activeDownloads[sourceURL] = nil
-    
-    // 2
-    let destinationURL = localFilePath(for: sourceURL)
-    print(destinationURL)
-    
-    // 3
-    let fileManager = FileManager.default
-    try? fileManager.removeItem(at: destinationURL)
-    
-//    do {
-//      try fileManager.copyItem(at: location, to: destinationURL)
-//      download?.track.downloaded = true
-//    } catch let error {
-//      print("Could not copy file to disk: \(error.localizedDescription)")
-//    }
-    
-    // 4
-//    if let index = download?.track.index {
-//      DispatchQueue.main.async { [weak self] in
-//        self?.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-//      }
-//    }
-  }
-  
-  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
-                  didWriteData bytesWritten: Int64, totalBytesWritten: Int64,
-                  totalBytesExpectedToWrite: Int64) {
-    // 1
-//    guard
-//      let url = downloadTask.originalRequest?.url,
-//      let download = downloadService.activeDownloads[url]  else {
-//        return
-//    }
-//
-//    // 2
-//    download.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-//    // 3
-//    let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
-//
-    // 4
-//    DispatchQueue.main.async {
-//      if let trackCell = self.collectionView.cellForRow(at: IndexPath(row: spell.index,
-//                                                                 section: 0)) as? spellCell {
-//        trackCell.updateDisplay(progress: download.progress, totalSize: totalSize)
-//      }
-//    }
-  }
+    func singleSpellInfo(_ spellFetchManager: SpellFetchManager, result: Spell) {
+        DispatchQueue.main.async { [weak self] in
+            print(result)
+            self?.spell = result
+        }
+    }
 }
+
+extension UICollectionViewCell {
+    
+}
+
+
+

@@ -11,14 +11,13 @@ class SpellCellCollectionViewCell: UICollectionViewCell {
 
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var castTimeLabel: UILabel!
-    @IBOutlet weak var typeLable: UILabel!
-    @IBOutlet weak var rangeLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func configure(with model: Spell){
+        nameLabel.text = model.name
+    }
 }

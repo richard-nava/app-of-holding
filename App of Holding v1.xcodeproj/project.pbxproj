@@ -23,6 +23,15 @@
 		242B678927112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 242B678727112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld */; };
 		242B678B27112554002ADCD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 242B678A27112554002ADCD3 /* Assets.xcassets */; };
 		242B678E27112554002ADCD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 242B678C27112554002ADCD3 /* LaunchScreen.storyboard */; };
+		246B93DF2722039C00F163A6 /* SpellResultViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246B93DD2722039C00F163A6 /* SpellResultViewCell.swift */; };
+		246B93E02722039C00F163A6 /* SpellResultViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 246B93DE2722039C00F163A6 /* SpellResultViewCell.xib */; };
+		246B93E32722091600F163A6 /* SpellSearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246B93E12722091600F163A6 /* SpellSearchViewCell.swift */; };
+		246B93E42722091600F163A6 /* SpellSearchViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 246B93E22722091600F163A6 /* SpellSearchViewCell.xib */; };
+		247A1BA42724937F00E86F95 /* AlertsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247A1BA32724937F00E86F95 /* AlertsStoryboard.storyboard */; };
+		247A1BA7272493A100E86F95 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247A1BA6272493A100E86F95 /* AlertViewController.swift */; };
+		24BE2B742724A0BD00C959DA /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE2B732724A0BD00C959DA /* AlertService.swift */; };
+		24BE2B762724AA7100C959DA /* SingleSpellSearched.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BE2B752724AA7100C959DA /* SingleSpellSearched.storyboard */; };
+		24BE2B782724AB2F00C959DA /* SpellDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BE2B772724AB2F00C959DA /* SpellDataController.swift */; };
 		24CD5A82271E317A00F24182 /* ResultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD5A81271E317A00F24182 /* ResultsData.swift */; };
 		ED0501F9ADC086DE80F09DB2 /* Pods_App_of_Holding_v1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D54EDEC444FCF975F7CA6E /* Pods_App_of_Holding_v1.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +55,15 @@
 		242B678A27112554002ADCD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		242B678D27112554002ADCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		242B678F27112554002ADCD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		246B93DD2722039C00F163A6 /* SpellResultViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellResultViewCell.swift; sourceTree = "<group>"; };
+		246B93DE2722039C00F163A6 /* SpellResultViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellResultViewCell.xib; sourceTree = "<group>"; };
+		246B93E12722091600F163A6 /* SpellSearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellSearchViewCell.swift; sourceTree = "<group>"; };
+		246B93E22722091600F163A6 /* SpellSearchViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpellSearchViewCell.xib; sourceTree = "<group>"; };
+		247A1BA32724937F00E86F95 /* AlertsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertsStoryboard.storyboard; sourceTree = "<group>"; };
+		247A1BA6272493A100E86F95 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		24BE2B732724A0BD00C959DA /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		24BE2B752724AA7100C959DA /* SingleSpellSearched.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleSpellSearched.storyboard; sourceTree = "<group>"; };
+		24BE2B772724AB2F00C959DA /* SpellDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellDataController.swift; sourceTree = "<group>"; };
 		24CD5A81271E317A00F24182 /* ResultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsData.swift; sourceTree = "<group>"; };
 		2610AF5DFF97EE96599A0484 /* Pods-App of Holding v1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App of Holding v1.debug.xcconfig"; path = "Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1.debug.xcconfig"; sourceTree = "<group>"; };
 		3A30B754754F8F573D8424C7 /* Pods-App of Holding v1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App of Holding v1.release.xcconfig"; path = "Target Support Files/Pods-App of Holding v1/Pods-App of Holding v1.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +85,8 @@
 		240DCF0F271B3C7D00C820E5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24BE2B722724A0AE00C959DA /* Services */,
+				247A1BA52724938E00E86F95 /* AlertsControllers */,
 				240DCF21271B582F00C820E5 /* MainControllers */,
 				240DCF20271B582200C820E5 /* SearchControllers */,
 			);
@@ -86,8 +106,8 @@
 		240DCF19271B512D00C820E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				242B678C27112554002ADCD3 /* LaunchScreen.storyboard */,
-				242B678427112553002ADCD3 /* Main.storyboard */,
+				247A1BA22724934200E86F95 /* Storyboards */,
+				246B93DC2722036B00F163A6 /* Cells */,
 				24155413271C989000433BD3 /* SpellCellCollectionViewCell.swift */,
 				24155414271C989000433BD3 /* SpellCellCollectionViewCell.xib */,
 			);
@@ -145,6 +165,45 @@
 				242B678727112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld */,
 			);
 			path = "App of Holding v1";
+			sourceTree = "<group>";
+		};
+		246B93DC2722036B00F163A6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				246B93DD2722039C00F163A6 /* SpellResultViewCell.swift */,
+				246B93DE2722039C00F163A6 /* SpellResultViewCell.xib */,
+				246B93E12722091600F163A6 /* SpellSearchViewCell.swift */,
+				246B93E22722091600F163A6 /* SpellSearchViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		247A1BA22724934200E86F95 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				242B678C27112554002ADCD3 /* LaunchScreen.storyboard */,
+				24BE2B752724AA7100C959DA /* SingleSpellSearched.storyboard */,
+				242B678427112553002ADCD3 /* Main.storyboard */,
+				247A1BA32724937F00E86F95 /* AlertsStoryboard.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		247A1BA52724938E00E86F95 /* AlertsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				247A1BA6272493A100E86F95 /* AlertViewController.swift */,
+				24BE2B772724AB2F00C959DA /* SpellDataController.swift */,
+			);
+			path = AlertsControllers;
+			sourceTree = "<group>";
+		};
+		24BE2B722724A0AE00C959DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				24BE2B732724A0BD00C959DA /* AlertService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D563D9D90E113DD3A8B97578 /* Pods */ = {
@@ -224,7 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				242B678E27112554002ADCD3 /* LaunchScreen.storyboard in Resources */,
+				246B93E02722039C00F163A6 /* SpellResultViewCell.xib in Resources */,
+				247A1BA42724937F00E86F95 /* AlertsStoryboard.storyboard in Resources */,
 				242B678B27112554002ADCD3 /* Assets.xcassets in Resources */,
+				24BE2B762724AA7100C959DA /* SingleSpellSearched.storyboard in Resources */,
+				246B93E42722091600F163A6 /* SpellSearchViewCell.xib in Resources */,
 				242B678627112553002ADCD3 /* Main.storyboard in Resources */,
 				24155416271C989000433BD3 /* SpellCellCollectionViewCell.xib in Resources */,
 			);
@@ -270,10 +333,15 @@
 				242B678327112553002ADCD3 /* SpellsController.swift in Sources */,
 				24CD5A82271E317A00F24182 /* ResultsData.swift in Sources */,
 				242B678927112553002ADCD3 /* App_of_Holding_v1.xcdatamodeld in Sources */,
+				24BE2B782724AB2F00C959DA /* SpellDataController.swift in Sources */,
 				240DCF23271B585800C820E5 /* SpellSearchController.swift in Sources */,
 				242B677F27112553002ADCD3 /* AppDelegate.swift in Sources */,
+				246B93DF2722039C00F163A6 /* SpellResultViewCell.swift in Sources */,
+				247A1BA7272493A100E86F95 /* AlertViewController.swift in Sources */,
 				242B678127112553002ADCD3 /* SceneDelegate.swift in Sources */,
+				24BE2B742724A0BD00C959DA /* AlertService.swift in Sources */,
 				240DCF1F271B53D500C820E5 /* SpellFetchManager.swift in Sources */,
+				246B93E32722091600F163A6 /* SpellSearchViewCell.swift in Sources */,
 				240DCF1D271B51DD00C820E5 /* Spell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

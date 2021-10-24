@@ -59,10 +59,16 @@ class SpellSearchController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "gotoSingleSpell"{
+        if segue.identifier == "goToSingleSpell"{
+            print("PREPARED SPELL vvvv")
+            print(spell)
+            let transferredSpell = spell
             let controller = segue.destination as! SpellDataController
-            controller.spell = spell
+            controller.spell = transferredSpell
         }
+        print("PRINTING SEGUE ID IN PREPARE FUNC")
+        print(segue.identifier)
+        print(spell)
     }
     
     
@@ -103,9 +109,7 @@ class SpellSearchController: UIViewController, UICollectionViewDelegate, UIColle
         print("Spell \(spells[indexPath.row].name)")
         spellManager.getSingleSpell(url: spells[indexPath.row].url!)
 //        let alertVC = alertService.alert()
-        let alertVC = alertService.alert2()
-        alertVC.spell = spell
-        performSegue(withIdentifier: "goToSingleSpell", sender: self)
+        //performSegue(withIdentifier: "goToSingleSpell", sender: self)
         
     }
     
@@ -114,27 +118,16 @@ class SpellSearchController: UIViewController, UICollectionViewDelegate, UIColle
     //MARK: Search Bar Methods
     //
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("here!")
-        
         dismissKeyboard()
         
         guard let searchText = searchBar.text, !searchText.isEmpty else {
           return
         }
-        print(searchText)
         spellManager.getSearchResults(searchterm: searchText)
-        
-        
         collectionView.reloadData()
-        
-    
     }
-    
-    
-     
-    
 }
 
 extension SpellSearchController: UISearchBarDelegate {
@@ -154,8 +147,13 @@ extension SpellSearchController: SpellFetchManagerDelagate {
     
     func singleSpellInfo(_ spellFetchManager: SpellFetchManager, result: Spell) {
         DispatchQueue.main.async { [weak self] in
+            print("results from SINGLE SPELL INFO")
             print(result)
             self?.spell = result
+            self?.collectionView.reloadData()
+            
+            // why does my perform segue transfer data here, but not in didSelectItemAt?ß
+            self?.performSegue(withIdentifier: "goToSingleSpell", sender: self)
         }
     }
 }

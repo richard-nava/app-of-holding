@@ -87,8 +87,10 @@ struct SpellFetchManager {
                 }
                 if let safeData = currentData {
                     let dataString = String(data: safeData, encoding: .utf8)
+                    print("printing dataString in getSingleSpell *****")
                     print(dataString as Any)
                     if let spell = self.parseSingleJSON(resultsData: safeData){
+                        print("IN GET SINGLE SPELL FUNCTION vvvvv")
                         print(spell)
                         self.delagate?.singleSpellInfo(self, result: spell)
                     }
@@ -138,8 +140,10 @@ struct SpellFetchManager {
             spell.url = decodedData.url
             spell.desc = decodedData.desc
             spell.range = decodedData.range
+            print("Spell from singleJson: \(spell)")
             return spell
         } catch {
+            print(error)
             return nil
         }
     }

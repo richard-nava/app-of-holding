@@ -11,7 +11,7 @@ struct Spell: Decodable {
     var index: String?;
     var name: String?;
     var url: String?;
-    var desc: String?;
+    var desc: Array<String>?;
     var range: String?;
     var casting_time: String?;
     var attack_type: String?;

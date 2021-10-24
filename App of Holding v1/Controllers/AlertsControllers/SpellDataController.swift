@@ -26,6 +26,6 @@ class SpellDataController: UIViewController {
         print(spell)
         name.text = spell.name
         attackType.text = spell.attack_type
-        desc.text = spell.desc
+        desc.text = spell.desc![0]
     }
 }

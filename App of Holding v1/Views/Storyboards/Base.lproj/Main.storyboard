@@ -170,6 +170,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                         <size key="customSize" width="389" height="72"/>
+                                        <connections>
+                                            <segue destination="CoY-sm-Scc" kind="show" identifier="goToSingleSpell" id="mWh-7D-KYS"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -185,14 +188,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6CX-ag-AdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="935"/>
+            <point key="canvasLocation" x="157" y="1533"/>
         </scene>
         <!--Spell Data Controller-->
         <scene sceneID="bN1-yE-x70">
             <objects>
                 <viewController id="CoY-sm-Scc" customClass="SpellDataController" customModule="App_of_Holding_v1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e0H-4d-dzA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1q-jS-0dC">
@@ -229,6 +232,7 @@
                         <viewLayoutGuide key="safeArea" id="Ua7-s6-3SI"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.27207977092818708" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Jbu-Ce-F1o"/>
                     <connections>
                         <outlet property="attackType" destination="fcP-Ak-osj" id="JmA-QK-0oc"/>
                         <outlet property="desc" destination="gYe-gF-76q" id="XrM-Gs-lEY"/>
@@ -237,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQH-e9-5BE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2084.057971014493" y="926.78571428571422"/>
+            <point key="canvasLocation" x="986" y="1533"/>
         </scene>
         <!--Characters Navigation-->
         <scene sceneID="EkT-zY-MfZ">
